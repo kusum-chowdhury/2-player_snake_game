@@ -35,3 +35,21 @@ function joinGame(){
     socket.emit("joinGame", code);
     startGame();
 }
+
+let canvas, canvasContext;
+let playerNumber;
+let gameActive = false;
+
+function startGame(){
+   initialScreen.style.display = "none";
+   gameScreen.style.display = "block";
+
+   canvas = document.getElementById("canvas");
+   canvasContext = canvas.getContext("2d");
+
+   canvas.width = canvas.height = 600;
+   canvasContext.fillStyle = BACKGROUND_COLOR;
+   canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+   document.addEventListener("keydown", keydown);
+   gameActive = true;
+}
