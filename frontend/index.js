@@ -53,3 +53,7 @@ function startGame(){
    document.addEventListener("keydown", keydown);
    gameActive = true;
 }
+
+function keydown(e){
+    socket.emit("keydown", e.keycode);
+};
